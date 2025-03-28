@@ -35,8 +35,7 @@ media/
 *.hdf5
 *.ckpt
 
-# Ignore CSV datasets (optional)
-*.csv
+
 
 # Ignore logs
 *.log
