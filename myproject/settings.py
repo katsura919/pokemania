@@ -25,15 +25,7 @@ SECRET_KEY = 'django-insecure-f%ce+c+hby39#h*9n!cga^9=6kcr)n-hxl9pkis7jxu$wxgv3d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'pokemania.onrender.com',
-    # For Render's health checks and internal routing:
-    '.onrender.com',
-    # Local development hosts
-    'localhost',
-    '127.0.0.1',
-    '[::1]',  # IPv6 localhost
-]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
