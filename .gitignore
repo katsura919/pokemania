@@ -1,0 +1,44 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment
+venv/
+env/
+.venv/
+
+# Ignore database files
+db.sqlite3
+*.sqlite3
+
+# Ignore environment variables (sensitive info)
+.env
+*.env
+
+# Ignore IDE/editor specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore static and media files (if applicable)
+staticfiles/
+media/
+
+# Ignore Django migrations (optional)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Ignore large model files
+*.h5
+*.hdf5
+*.ckpt
+
+# Ignore CSV datasets (optional)
+*.csv
+
+# Ignore logs
+*.log
+logs/
