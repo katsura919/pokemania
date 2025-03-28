@@ -31,8 +31,7 @@ media/
 **/migrations/*.py
 !**/migrations/__init__.py
 
-# Ignore large model files
-*.h5
+
 *.hdf5
 *.ckpt
 
