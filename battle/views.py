@@ -76,16 +76,31 @@ def predict_winner(request):
             if features is None:
                 return JsonResponse({"error": "Invalid Pokémon ID"}, status=400)
 
-            # Predict winner
-            prediction = model.predict(features)
-            winner_id = first_pokemon if prediction[0][0] > 0.5 else second_pokemon
+            # Predict probability
+            prediction = model.predict(features)[0][0]  # Extract probability
+
+            # Determine winner and confidence
+            if prediction > 0.5:
+                winner_id = first_pokemon
+                confidence = prediction
+            else:
+                winner_id = second_pokemon
+                confidence = 1 - prediction  # Adjust confidence for the other Pokémon
 
             # Get winner's name
             winner_name = pokemon_dict[winner_id]["Name"]
 
-            return JsonResponse({"winner_id": winner_id, "winner_name": winner_name})
+            # DEBUG: Print the confidence value to check if it's working
+            print(f"Predicted confidence: {confidence}")
+
+            return JsonResponse({
+                "winner_id": winner_id,
+                "winner_name": winner_name,
+                "confidence": f"{confidence * 100:.2f}%"  # Convert to percentage format
+            })
 
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse({"error": "Invalid request"}, status=400)
+
